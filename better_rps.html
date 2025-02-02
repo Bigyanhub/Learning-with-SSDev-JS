@@ -13,21 +13,26 @@
     <button onclick="play('Scissors')">Scissors</button>
     <button onclick="resetscore()">Reset the score</button>
 
-    <p>Win: ${score.win}</p>
-    <p>Loss: ${score.loss}</p>
-    <p>Tie: ${score.tie}</p>
-
     <script>
-      const score = {
-        win: 0,
-        loss: 0,
-        tie: 0,
+
+    let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
+        ties: 0
       };
+
+      // const score = {
+      //   win: 0,
+      //   loss: 0,
+      //   tie: 0,
+      // };
 
       function resetscore() {
         score.win = 0;
         score.loss = 0;
         score.tie = 0;
+        localStorage.removeItem('score');
+        alert('Score has been reset');
       }
       // =====================================
       // ============Play-Function============
@@ -38,25 +43,28 @@
 
         if (playerMove === computerMove) {
           result = "Tie";
+          score.tie++;
         } else if (
           (playerMove === "Rock" && computerMove === "Scissors") ||
           (playerMove === "Paper" && computerMove === "Rock") ||
           (playerMove === "Scissors" && computerMove === "Paper")
         ) {
           result = "You Win";
+          score.win++;
         } else {
           result = "You Lose";
+          score.loss++;
         }
 
-        if (result === "You Win") score.win++;
-        else if (result === "You Lose") score.loss++;
-        else score.tie++;
+        localStorage.setItem('score', JSON.stringify(score));
 
         console.log(`Your move: ${playerMove}`);
         console.log(`Computer move: ${computerMove}`);
         console.log(`Result: ${result}`);
-        alert(`You picked ${playerMove}. Computer picked ${computerMove}. 
-Result: ${result} Wins: ${score.win}, Losses: ${score.loss}, Ties: ${score.tie}`);
+        alert(`You picked ${playerMove}.
+Computer picked ${computerMove}.
+Result: ${result}
+Wins: ${score.win}, Losses: ${score.loss}, Ties: ${score.tie}`);
       }
 
       // ==============================================

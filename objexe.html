@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <title>obj</title>
+    <link rel="shortcut icon" href="#">
+  </head>
+  <body>
+    <script>
+
+      // function comparePrice(product1, product2) {
+      //   if (product1.price < product2.price) {
+      //     return product1;
+      //   } else return product2;
+      // }
+
+      const product1 = {
+        name: "BASKETBALL",
+        price: 2095,
+      };
+      const product2 = {
+        name: "BASKETBALL",
+        price: 2095,
+      };
+
+      const string = 'This IS A STring!!!!'
+
+
+      //comparing the product to see if they are same
+      console.log(_.isEqual(product1, product2)); 
+      console.log(JSON.stringify(product1)===JSON.stringify(product2));;
+
+      //making a string to lowercase
+      console.log(product1.name.toLowerCase());
+      console.log(string.toLowerCase());
+      console.log(string.toUpperCase());
+
+
+      // console.log(comparePrice(product1, product2));
+
+
+    
+      // console.log(product);
+
+      // product.price += 500;
+      // console.log(product);
+
+      // product["delivery-time"] = "3 days";
+      // console.log(product);
+
+      
+    </script>
+  </body>
+</html>
