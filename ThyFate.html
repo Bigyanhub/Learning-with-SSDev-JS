@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <button class="js-heads" onclick="showMessage('heads')">heads</button>
+    <button class="js-tails" onclick="showMessage('tails')">tails</button>
+    <p class="js-message"></p>
+
+    <script>
+      function showMessage(coinSide) {
+        let result =
+          coinSide === "heads"
+            ? "bask in the grace of fortune, blessed art thou 😇"
+            : "bear the weight of misfortune, cursed be thy fate 👿";
+
+        document.querySelector(
+          ".js-message"
+        ).innerHTML = `Verily, thou hast chosen: ${coinSide}, and so fate decreeth thou shalt ${result}.`;
+      }
+    </script>
+  </body>
+</html>
